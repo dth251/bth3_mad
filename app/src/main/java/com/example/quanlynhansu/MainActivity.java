@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,7 +66,7 @@ public class MainActivity extends Activity {
             startActivity(intent);
         });
         list.setOnItemLongClickListener((parent, view, position, id) -> {
-            confirmDelete(adapter.getItem(position));
+            showDeleteMenu(view, adapter.getItem(position));
             return true;
         });
     }
@@ -89,6 +90,16 @@ public class MainActivity extends Activity {
             count.setText(getString(R.string.result_count, 0));
             emptyText.setText(R.string.load_failed);
         }
+    }
+
+    private void showDeleteMenu(View anchor, NhanSu person) {
+        PopupMenu menu = new PopupMenu(this, anchor);
+        menu.getMenu().add(R.string.delete);
+        menu.setOnMenuItemClickListener(item -> {
+            confirmDelete(person);
+            return true;
+        });
+        menu.show();
     }
 
     private void confirmDelete(NhanSu person) {

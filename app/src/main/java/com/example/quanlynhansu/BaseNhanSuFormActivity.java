@@ -21,9 +21,10 @@ import java.util.Calendar;
 public abstract class BaseNhanSuFormActivity extends Activity {
     private static final int REQUEST_PHOTO = 100;
     protected DatabaseHelper database;
-    protected EditText employeeId, fullName, birthYear, hometown, education, salary;
+    protected EditText employeeId, fullName, birthYear, hometown, salary;
     protected RadioGroup gender;
-    protected Spinner department;
+    protected Spinner education, department;
+    private ArrayAdapter<String> educationAdapter;
     private ImageView avatar;
     private String selectedPhoto = "";
     private String originalPhoto = "";
@@ -37,11 +38,15 @@ public abstract class BaseNhanSuFormActivity extends Activity {
         fullName = findViewById(R.id.edtFullName);
         birthYear = findViewById(R.id.edtBirthYear);
         hometown = findViewById(R.id.edtHometown);
-        education = findViewById(R.id.edtEducation);
+        education = findViewById(R.id.spinnerEducation);
         salary = findViewById(R.id.edtSalary);
         gender = findViewById(R.id.radioGender);
         department = findViewById(R.id.spinnerDepartment);
         avatar = findViewById(R.id.imgAvatar);
+        educationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
+        educationAdapter.addAll(getResources().getStringArray(R.array.education_levels));
+        educationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        education.setAdapter(educationAdapter);
         ArrayAdapter<CharSequence> departments = ArrayAdapter.createFromResource(this,
                 R.array.departments, android.R.layout.simple_spinner_item);
         departments.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -77,7 +82,16 @@ public abstract class BaseNhanSuFormActivity extends Activity {
         fullName.setText(person.getHoTen());
         birthYear.setText(String.valueOf(person.getNamSinh()));
         hometown.setText(person.getQueQuan());
-        education.setText(person.getTrinhDo());
+        String savedEducation = person.getTrinhDo();
+        if (savedEducation != null && !savedEducation.isEmpty()) {
+            int position = educationAdapter.getPosition(savedEducation);
+            // Giữ trình độ tự nhập của hồ sơ cũ khi mở và lưu lại màn hình sửa.
+            if (position < 0) {
+                educationAdapter.add(savedEducation);
+                position = educationAdapter.getCount() - 1;
+            }
+            education.setSelection(position);
+        }
         salary.setText(java.math.BigDecimal.valueOf(person.getMucLuong()).stripTrailingZeros().toPlainString());
         gender.check("Nữ".equals(person.getGioiTinh()) ? R.id.radioFemale
                 : "Khác".equals(person.getGioiTinh()) ? R.id.radioOther : R.id.radioMale);
@@ -147,8 +161,10 @@ public abstract class BaseNhanSuFormActivity extends Activity {
             return null;
         }
         RadioButton selectedGender = findViewById(gender.getCheckedRadioButtonId());
+        String selectedEducation = education.getSelectedItemPosition() == 0
+                ? "" : education.getSelectedItem().toString();
         return new NhanSu(id, name, year, selectedGender.getText().toString(), text(hometown),
-                text(education), selectedPhoto, amount, department.getSelectedItem().toString());
+                selectedEducation, selectedPhoto, amount, department.getSelectedItem().toString());
     }
 
     private String text(EditText input) { return input.getText().toString().trim(); }
@@ -161,11 +177,12 @@ public abstract class BaseNhanSuFormActivity extends Activity {
     protected void resetForm() {
         if (!selectedPhoto.equals(originalPhoto)) PhotoHelper.delete(this, selectedPhoto);
         selectedPhoto = originalPhoto;
-        for (EditText input : new EditText[]{employeeId, fullName, birthYear, hometown, education, salary}) {
+        for (EditText input : new EditText[]{employeeId, fullName, birthYear, hometown, salary}) {
             input.setText("");
             input.setError(null);
         }
         gender.check(R.id.radioMale);
+        education.setSelection(0);
         department.setSelection(0);
         PhotoHelper.display(avatar, selectedPhoto);
         employeeId.requestFocus();

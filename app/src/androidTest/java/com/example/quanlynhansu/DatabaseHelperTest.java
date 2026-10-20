@@ -21,6 +21,9 @@ public class DatabaseHelperTest extends AndroidTestCase {
         super.setUp();
         isolatedContext = new RenamingDelegatingContext(getContext(), "test_") {
             @Override public Context getApplicationContext() { return this; }
+            @Override public boolean deleteDatabase(String name) {
+                return DatabaseHelperTest.this.getContext().deleteDatabase("test_" + name);
+            }
         };
         isolatedContext.deleteDatabase(DatabaseHelper.DATABASE_NAME);
         database = new DatabaseHelper(isolatedContext);

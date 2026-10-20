@@ -34,7 +34,7 @@
     <string name="hometown">Quê quán</string>
     <string name="hometown_hint">Nhập tỉnh / thành phố</string>
     <string name="education">Trình độ</string>
-    <string name="education_hint">Ví dụ: Đại học</string>
+    <string name="choose_education">Chọn trình độ</string>
     <string name="salary">Mức lương (VNĐ) *</string>
     <string name="salary_hint">Ví dụ: 12000000</string>
     <string name="department">Phòng ban</string>
@@ -71,6 +71,16 @@
     <string name="detail_education">TRÌNH ĐỘ</string>
     <string name="detail_salary">MỨC LƯƠNG</string>
     <string name="detail_department">PHÒNG BAN</string>
+    <string-array name="education_levels">
+        <item>@string/choose_education</item>
+        <item>THPT</item>
+        <item>Trung cấp</item>
+        <item>Cao đẳng</item>
+        <item>Đại học</item>
+        <item>Thạc sĩ</item>
+        <item>Tiến sĩ</item>
+        <item>Khác</item>
+    </string-array>
     <string-array name="departments">
         <item>Hành chính</item>
         <item>Phần mềm</item>

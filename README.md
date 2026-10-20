@@ -126,7 +126,7 @@ Kế thừa `BaseAdapter`, dùng `ArrayList<NhanSu>` và layout `item_nhan_su.xm
 
 ## 7. MainActivity.java
 
-`onCreate()` khởi tạo helper, adapter, ListView, bộ lắng nghe tìm kiếm và Spinner. Nhấn thêm mở Add; nhấn một dòng mở Detail bằng Intent chứa `maNhanSu`. Nhấn giữ mở AlertDialog, chọn Đồng ý mới gọi DELETE. Khi Hủy, dữ liệu giữ nguyên.
+`onCreate()` khởi tạo helper, adapter, ListView, bộ lắng nghe tìm kiếm và Spinner. Nhấn thêm mở Add; nhấn một dòng mở Detail bằng Intent chứa `maNhanSu`. Nhấn giữ một dòng hiện menu XÓA; chọn XÓA mới mở AlertDialog xác nhận. Chỉ chọn Đồng ý mới gọi DELETE. Khi Hủy hoặc đóng menu, dữ liệu giữ nguyên.
 
 `onResume()` đọc lại dữ liệu, nên khi trở về từ màn hình thêm/sửa/xóa, danh sách được làm mới ngay. Từ khóa và kiểu sắp xếp đang chọn cùng tham gia truy vấn. ListView dùng empty view cho trường hợp chưa có dữ liệu hoặc không có kết quả tìm kiếm.
 
@@ -140,7 +140,7 @@ Kiểm tra đầu vào:
 - Mã là khóa chính, phân biệt hoa/thường theo schema SQLite; trùng đúng mã sẽ bị từ chối. Tìm kiếm vẫn không phân biệt hoa/thường.
 - Năm sinh bắt buộc, là số nguyên từ **1900 đến năm hiện tại**.
 - Lương bắt buộc, là số hữu hạn không âm; chấp nhận dấu chấm hoặc dấu phẩy thập phân, ví dụ `12000000` hoặc `12000000,5`. Không nhập dấu phân cách hàng nghìn.
-- Quê quán, trình độ và ảnh có thể để trống; mặc định giới tính Nam, phòng ban Hành chính.
+- Quê quán, trình độ và ảnh có thể để trống; mặc định giới tính Nam, phòng ban Hành chính. Trình độ dùng hộp chọn THPT, Trung cấp, Cao đẳng, Đại học, Thạc sĩ, Tiến sĩ hoặc Khác trong cả màn hình thêm và sửa. Hồ sơ cũ có trình độ ngoài danh sách vẫn được giữ nguyên khi mở sửa.
 
 Nút THÊM lưu SQLite, hiện Toast rồi quay lại Main. LÀM MỚI xóa form, lỗi nhập, ảnh đang chọn và khôi phục các lựa chọn mặc định. QUAY LẠI hủy nhập.
 
@@ -201,7 +201,7 @@ Bộ kiểm thử database dùng database có tiền tố `test_`, độc lập 
 | Có các mức lương 9 / 20,5 / 100; sắp xếp hai chiều | Thứ tự số đúng, vẫn giữ bộ lọc tìm kiếm |
 | Mở chi tiết, sửa tên/lương/phòng ban | Mã bị khóa; Detail và Main hiển thị dữ liệu mới |
 | Sửa nhưng nhấn HỦY | Dữ liệu cũ và ảnh cũ giữ nguyên |
-| Nhấn giữ dòng hoặc nhấn XÓA trong Detail | Luôn có xác nhận; Hủy giữ hồ sơ, Đồng ý xóa và cập nhật danh sách |
+| Nhấn giữ dòng → XÓA hoặc nhấn XÓA trong Detail | Luôn có xác nhận; Hủy giữ hồ sơ, Đồng ý xóa và cập nhật danh sách |
 | Chọn ảnh từ thư viện; đóng và mở app | Ảnh còn hiển thị |
 | Chọn ảnh mới rồi làm mới/hủy; hủy bộ chọn | Không lưu ảnh mới vào hồ sơ |
 | Đóng app/force-stop, mở lại | Hồ sơ và ảnh đã lưu vẫn còn |

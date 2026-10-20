@@ -32,9 +32,9 @@
     <TextView style="@style/FieldLabel" android:text="@string/hometown" />
     <EditText android:id="@+id/edtHometown" style="@style/FormInput" android:hint="@string/hometown_hint"
         android:inputType="textCapWords" android:maxLength="150" android:autofillHints="" />
-    <TextView style="@style/FieldLabel" android:text="@string/education" />
-    <EditText android:id="@+id/edtEducation" style="@style/FormInput" android:hint="@string/education_hint"
-        android:inputType="textCapSentences" android:maxLength="100" android:autofillHints="" />
+    <TextView style="@style/FieldLabel" android:text="@string/education" android:labelFor="@id/spinnerEducation" />
+    <Spinner android:id="@+id/spinnerEducation" android:layout_width="match_parent" android:layout_height="52dp"
+        android:background="@drawable/bg_input" android:spinnerMode="dropdown" android:contentDescription="@string/education" />
     <TextView style="@style/FieldLabel" android:text="@string/salary" />
     <EditText android:id="@+id/edtSalary" style="@style/FormInput" android:hint="@string/salary_hint"
         android:inputType="numberDecimal" android:imeOptions="actionDone" android:maxLength="18" android:autofillHints="" />
