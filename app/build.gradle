@@ -1,0 +1,32 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.quanlynhansu'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.example.quanlynhansu'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+        testInstrumentationRunner 'android.test.InstrumentationTestRunner'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    // Bộ kiểm thử dùng framework Android sẵn có, không cần AndroidX.
+    useLibrary 'android.test.runner', false
+    useLibrary 'android.test.base', false
+}

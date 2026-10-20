@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:focusableInTouchMode="true">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+            android:padding="20dp" android:background="@color/primary">
+            <TextView style="@style/ScreenTitle" android:text="@string/add_title" />
+            <TextView style="@style/ScreenSubtitle" android:text="@string/add_subtitle" />
+            <include layout="@layout/include_student" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+            <include layout="@layout/include_nhan_su_form" />
+            <Button android:id="@+id/btnSave" style="@style/PrimaryButton" android:text="@string/add" />
+            <Button android:id="@+id/btnReset" style="@style/SecondaryButton" android:text="@string/reset" />
+            <Button android:id="@+id/btnBack" style="@style/SecondaryButton" android:text="@string/back" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

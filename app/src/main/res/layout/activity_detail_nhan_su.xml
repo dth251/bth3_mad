@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+            android:padding="20dp" android:background="@color/primary">
+            <TextView style="@style/ScreenTitle" android:text="@string/detail_title" />
+            <TextView style="@style/ScreenSubtitle" android:text="@string/detail_subtitle" />
+            <include layout="@layout/include_student" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+                android:padding="20dp" android:background="@drawable/bg_card">
+                <ImageView android:id="@+id/imgAvatar" android:layout_width="120dp" android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal" android:src="@drawable/ic_people" android:scaleType="centerCrop" android:contentDescription="@string/avatar" />
+                <TextView android:id="@+id/tvName" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp" android:gravity="center" android:textSize="24sp"
+                    android:textColor="@color/text_primary" android:textStyle="bold" android:textIsSelectable="true" />
+                <TextView style="@style/DetailLabel" android:text="@string/detail_id" />
+                <TextView android:id="@+id/tvEmployeeId" style="@style/DetailValue" />
+                <TextView style="@style/DetailLabel" android:text="@string/detail_year" />
+                <TextView android:id="@+id/tvBirthYear" style="@style/DetailValue" />
+                <TextView style="@style/DetailLabel" android:text="@string/detail_gender" />
+                <TextView android:id="@+id/tvGender" style="@style/DetailValue" />
+                <TextView style="@style/DetailLabel" android:text="@string/detail_hometown" />
+                <TextView android:id="@+id/tvHometown" style="@style/DetailValue" />
+                <TextView style="@style/DetailLabel" android:text="@string/detail_education" />
+                <TextView android:id="@+id/tvEducation" style="@style/DetailValue" />
+                <TextView style="@style/DetailLabel" android:text="@string/detail_salary" />
+                <TextView android:id="@+id/tvSalary" style="@style/DetailValue" android:textColor="@color/primary" android:textStyle="bold" />
+                <TextView style="@style/DetailLabel" android:text="@string/detail_department" />
+                <TextView android:id="@+id/tvDepartment" style="@style/DetailValue" />
+            </LinearLayout>
+            <Button android:id="@+id/btnEdit" style="@style/PrimaryButton" android:text="@string/edit" />
+            <Button android:id="@+id/btnDelete" style="@style/DangerButton" android:text="@string/delete" />
+            <Button android:id="@+id/btnBack" style="@style/SecondaryButton" android:text="@string/back" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

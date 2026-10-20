@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quản lý nhân sự</string>
+    <string name="main_title">QUẢN LÝ NHÂN SỰ</string>
+    <string name="main_subtitle">Quản lý đội ngũ, kết nối thành công</string>
+    <string name="student_info">MSSV: B23DCCE087\nHọ tên: Nguyễn Duy Thắng</string>
+    <string name="add_title">THÊM NHÂN SỰ</string>
+    <string name="add_subtitle">Tạo hồ sơ mới cho đội ngũ của bạn</string>
+    <string name="edit_title">CHỈNH SỬA NHÂN SỰ</string>
+    <string name="edit_subtitle">Cập nhật thông tin hồ sơ nhân sự</string>
+    <string name="detail_title">CHI TIẾT NHÂN SỰ</string>
+    <string name="detail_subtitle">Thông tin đầy đủ của nhân sự</string>
+    <string name="search_hint">Tìm theo mã hoặc họ tên…</string>
+    <string name="sort_label">Sắp xếp lương</string>
+    <string name="list_label">DANH SÁCH NHÂN SỰ</string>
+    <string name="result_count">%1$d nhân sự</string>
+    <string name="empty_list">Chưa có nhân sự\nNhấn THÊM NHÂN SỰ để bắt đầu.</string>
+    <string name="empty_search">Không tìm thấy nhân sự phù hợp.\nHãy thử mã hoặc họ tên khác.</string>
+    <string name="add_employee">THÊM NHÂN SỰ</string>
+    <string name="avatar">Ảnh đại diện</string>
+    <string name="choose_photo">CHỌN ẢNH TỪ THƯ VIỆN</string>
+    <string name="photo_note">Ảnh được lưu trong ứng dụng, dùng được khi mở lại.</string>
+    <string name="required_note">Các trường có dấu * là bắt buộc.</string>
+    <string name="employee_id">Mã nhân sự *</string>
+    <string name="employee_id_hint">Ví dụ: NS001</string>
+    <string name="full_name">Họ và tên *</string>
+    <string name="full_name_hint">Nhập họ và tên</string>
+    <string name="birth_year">Năm sinh *</string>
+    <string name="birth_year_hint">Ví dụ: 2000</string>
+    <string name="gender">Giới tính</string>
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
+    <string name="other">Khác</string>
+    <string name="hometown">Quê quán</string>
+    <string name="hometown_hint">Nhập tỉnh / thành phố</string>
+    <string name="education">Trình độ</string>
+    <string name="education_hint">Ví dụ: Đại học</string>
+    <string name="salary">Mức lương (VNĐ) *</string>
+    <string name="salary_hint">Ví dụ: 12000000</string>
+    <string name="department">Phòng ban</string>
+    <string name="add">THÊM</string>
+    <string name="reset">LÀM MỚI</string>
+    <string name="back">QUAY LẠI</string>
+    <string name="edit">CHỈNH SỬA</string>
+    <string name="update">CẬP NHẬT</string>
+    <string name="cancel">HỦY</string>
+    <string name="delete">XÓA</string>
+    <string name="confirm_delete">Xác nhận xóa nhân sự</string>
+    <string name="delete_message">Xóa nhân sự “%1$s” (%2$s)?</string>
+    <string name="agree">Đồng ý</string>
+    <string name="add_success">Thêm nhân sự thành công.</string>
+    <string name="update_success">Cập nhật nhân sự thành công.</string>
+    <string name="delete_success">Đã xóa nhân sự.</string>
+    <string name="save_failed">Không thể lưu nhân sự. Vui lòng thử lại.</string>
+    <string name="delete_failed">Không thể xóa nhân sự. Vui lòng thử lại.</string>
+    <string name="load_failed">Không thể đọc dữ liệu. Vui lòng mở lại ứng dụng.</string>
+    <string name="not_found">Nhân sự không còn tồn tại.</string>
+    <string name="photo_failed">Không đọc được ảnh. Vui lòng chọn ảnh khác.</string>
+    <string name="no_photo_app">Thiết bị chưa có ứng dụng chọn ảnh.</string>
+    <string name="id_required">Vui lòng nhập mã nhân sự.</string>
+    <string name="name_required">Vui lòng nhập họ và tên.</string>
+    <string name="duplicate_id">Mã nhân sự đã tồn tại.</string>
+    <string name="invalid_year">Năm sinh phải từ 1900 đến %1$d.</string>
+    <string name="invalid_salary">Nhập mức lương là số hữu hạn, không âm.</string>
+    <string name="id_locked">Mã nhân sự là khóa chính và không thể thay đổi.</string>
+    <string name="no_value">Chưa cập nhật</string>
+    <string name="detail_id">MÃ NHÂN SỰ</string>
+    <string name="detail_year">NĂM SINH</string>
+    <string name="detail_gender">GIỚI TÍNH</string>
+    <string name="detail_hometown">QUÊ QUÁN</string>
+    <string name="detail_education">TRÌNH ĐỘ</string>
+    <string name="detail_salary">MỨC LƯƠNG</string>
+    <string name="detail_department">PHÒNG BAN</string>
+    <string-array name="departments">
+        <item>Hành chính</item>
+        <item>Phần mềm</item>
+        <item>Kỹ thuật</item>
+        <item>Dự án</item>
+    </string-array>
+    <string-array name="salary_sort_options">
+        <item>Mặc định</item>
+        <item>Lương tăng dần</item>
+        <item>Lương giảm dần</item>
+    </string-array>
+</resources>
