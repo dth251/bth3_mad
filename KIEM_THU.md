@@ -56,15 +56,15 @@ Báo cáo đầy đủ sau khi chạy: [androidTests](app/build/reports/androidT
 Kiểm thử thực tế được thực hiện trên máy ảo API 37 nêu trên. Chưa chạy riêng trên thiết bị thật hoặc máy ảo API 24. Bộ kiểm thử ảnh kiểm tra sao chép và lưu ảnh nội bộ; giao diện bộ chọn ảnh của từng hãng điện thoại cần thử thêm theo hướng dẫn trong README. Sau sáu kiểm thử thành công, thay đổi cuối chỉ bổ sung cấu hình backup và căn giữa trạng thái danh sách trống; bản APK cuối đã build và kiểm tra Lint lại thành công.
 
 
-## C?p nh?t h?p ch?n tr?nh ?? v? menu x?a ? 20/10/2026
+## Cập nhật hộp chọn trình độ và menu xóa — 20/10/2026
 
-- Tr?nh ?? d?ng Spinner trong c? m?n h?nh th?m v? s?a: THPT, Trung c?p, Cao ??ng, ??i h?c, Th?c s?, Ti?n s?, Kh?c. M?c ?Ch?n tr?nh ??? gi? kh? n?ng ?? tr?ng; L?m m?i tr? v? m?c n?y. Gi? tr? t? nh?p c?a h? s? c? v?n ???c ch?n v? l?u nguy?n khi ch?nh s?a.
-- Nh?n gi? d?ng nh?n s? hi?n th? menu X?A. Ch?n X?A m?i m? h?p tho?i x?c nh?n; H?Y gi? d? li?u, ??NG ? m?i x?a. Ki?m th? g?i thao t?c nh?n gi? b?ng UiAutomation v? ch?n menu tr?n giao di?n th?t.
-- S?p x?p M?c ??nh (theo m?), L??ng t?ng d?n v? L??ng gi?m d?n: ??t v?i l??ng 9 / 20,5 / 100, l??ng b?ng nhau, ??i l?i ch? ?? m?c ??nh, t?m ki?m c? m?t k?t qu? v? kh?ng c? k?t qu?.
-- Lu?ng ?nh: ch?n ?nh, l?u h? s?, hi?n th? ? chi ti?t, thay ?nh r?i h?y, thay ?nh r?i l?u, d?n ?nh c? v? ??c l?i ???ng d?n ?? l?u ??u ??t. B? ki?m th? cung c?p k?t qu? ?nh m?u cho y?u c?u ACTION_OPEN_DOCUMENT; ch?a thao t?c b? ch?n ?nh h? th?ng c?a t?ng thi?t b?.
+- Trình độ dùng Spinner trong cả màn hình thêm và sửa: THPT, Trung cấp, Cao đẳng, Đại học, Thạc sĩ, Tiến sĩ, Khác. Mục “Chọn trình độ” giữ khả năng để trống; Làm mới trả về mục này. Giá trị tự nhập của hồ sơ cũ vẫn được chọn và lưu nguyên khi chỉnh sửa.
+- Nhấn giữ dòng nhân sự hiển thị menu XÓA. Chọn XÓA mới mở hộp thoại xác nhận; HỦY giữ dữ liệu, ĐỒNG Ý mới xóa. Kiểm thử gửi thao tác nhấn giữ bằng UiAutomation và chọn menu trên giao diện thật.
+- Sắp xếp Mặc định (theo mã), Lương tăng dần và Lương giảm dần: đạt với lương 9 / 20,5 / 100, lương bằng nhau, đổi lại chế độ mặc định, tìm kiếm có một kết quả và không có kết quả.
+- Luồng ảnh: chọn ảnh, lưu hồ sơ, hiển thị ở chi tiết, thay ảnh rồi hủy, thay ảnh rồi lưu, dọn ảnh cũ và đọc lại đường dẫn đã lưu đều đạt. Bộ kiểm thử cung cấp kết quả ảnh mẫu cho yêu cầu ACTION_OPEN_DOCUMENT; chưa thao tác bộ chọn ảnh hệ thống của từng thiết bị.
 
-M?i tr??ng ch?y b? sung: Pixel_10a, Android 17 / API 37, JDK 17, Gradle Wrapper 9.7.1 trong project hi?n t?i.
+Môi trường chạy bổ sung: Pixel_10a, Android 17 / API 37, JDK 17, Gradle Wrapper 9.7.1 trong project hiện tại.
 
-Build `assembleDebug assembleDebugAndroidTest lintDebug`: **th?nh c?ng**. Lint: **0 l?i, 1 c?nh b?o ExifInterface ?? c? t? tr??c**.
+Build `assembleDebug assembleDebugAndroidTest lintDebug`: **thành công**. Lint: **0 lỗi, 1 cảnh báo ExifInterface đã có từ trước**.
 
-?? x?c minh **9 tr??ng h?p ki?m th?**: 8 tr??ng h?p ??t ? l??t ch?y b? ki?m th?; tr??ng h?p menu x?a ???c ch?y l?i ri?ng v? ??t sau khi c?p nh?t c?ch g?i thao t?c ch?m v? ch?n ph?n t? menu. M? ?ng d?ng kh?ng thay ??i gi?a hai l??t n?y. B? ki?m th? ch? m?n h?nh ??ng tr??c khi ki?m tra k?t qu? l?u/h?y v? d?n database ki?m th? ri?ng gi?a c?c l?n ch?y.
+Đã xác minh **9 trường hợp kiểm thử**: 8 trường hợp đạt ở lượt chạy bộ kiểm thử; trường hợp menu xóa được chạy lại riêng và đạt sau khi cập nhật cách gửi thao tác chạm và chọn phần tử menu. Mã ứng dụng không thay đổi giữa hai lượt này. Bộ kiểm thử chờ màn hình đóng trước khi kiểm tra kết quả lưu/hủy và dọn database kiểm thử riêng giữa các lần chạy.
